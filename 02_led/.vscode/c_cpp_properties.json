@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                //"F:\linuxtest/\kernel\kernel\arch\arm\include",
+                //"F:\linuxtest\kernel\kernel\arch\arm\include\generated",
+                //"F:\linuxtest\kernel\kernel\include"
+                "F:/linuxtest/kernel/kernel/arch/arm/include",
+                "F:/linuxtest/kernel/kernel/arch/arm/include/generated/",
+                "F:/linuxtest/kernel/kernel/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "__GNUC__",
+                "GNUC",
+                "CONFIG_MODULES"
+            ]
+        }
+    ],
+    "version": 4
+}

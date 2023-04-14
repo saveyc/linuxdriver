@@ -8,7 +8,10 @@
 		"files.associations": {
 			"types.h": "c",
 			"module.h": "c",
-			"errno.h": "c"
+			"errno.h": "c",
+			"kernel.h": "c",
+			"ide.h": "c",
+			"io.h": "c"
 		}
 	}
 }

@@ -7,9 +7,13 @@
                 //"F:\linuxtest/\kernel\kernel\arch\arm\include",
                 //"F:\linuxtest\kernel\kernel\arch\arm\include\generated",
                 //"F:\linuxtest\kernel\kernel\include"
-                "F:/linuxtest/kernel/kernel/arch/arm/include",
-                "F:/linuxtest/kernel/kernel/arch/arm/include/generated/",
-                "F:/linuxtest/kernel/kernel/include"
+                // "F:/linuxtest/kernel/kernel/arch/arm/include",
+                // "F:/linuxtest/kernel/kernel/arch/arm/include/generated/",
+                // "F:/linuxtest/kernel/kernel/include",
+                "E:/linuxtest/kernel/include",
+                "E:/linuxtest/kernel/arch/arm/include",
+                "E:/linuxtest/kernel/arch/arm/include/generated"
+
             ],
             "defines": [
                 "_DEBUG",
@@ -17,7 +21,9 @@
                 "_UNICODE",
                 "__GNUC__",
                 "GNUC",
-                "CONFIG_MODULES"
+                "CONFIG_MODULES",
+                "__GNUC__",
+                "__KERNEL__"
             ]
         }
     ],

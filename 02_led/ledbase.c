@@ -97,8 +97,8 @@ static struct file_operations led_fops = {
 
 static void led_resigister_init(void)
 {
-     IMX6U_CCM_CCGR1 =  ioremap(CCM_CCGR1_BASE,4);
-     
+     IMX6U_CCM_CCGR1 =  ioremap (CCM_CCGR1_BASE,4);
+
 
 }
 

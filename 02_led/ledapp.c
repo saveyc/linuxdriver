@@ -1,21 +1,22 @@
-#include<stdio.h>
-#include<unistd.h>
-#include<sys/types.h>
-#include<sys/stat.h>
-#include<fcntl.h>
-#include<stdlib.h>
-#include<string.h>
+#include"stdio.h"
+#include"unistd.h"  
+#include"sys/types.h"
+#include"sys/stat.h"
+#include"fcntl.h"
+#include"stdlib.h"
+#include"string.h"
 
-static char userdata[] = {"usr data"};
+#define  LEDOFF     0
+#define  LEDON      1
 
 int main(int argc, char* argv[]) 
 {
     int fd,retvalue;
-
     char* filename = NULL;
-    char readbuf[100],writebuf[100];
+    unsigned char databuf[1];
+
     if(argc != 3){
-        printf("REEOR Usage! \r\n");
+        printf("ERROR USAGE!  \r \n");
         return -1;
     }
 
@@ -23,32 +24,24 @@ int main(int argc, char* argv[])
 
     fd = open(filename,O_RDWR);
 
-    if(fd<0){
-        printf("Can't open file %s\r\n",filename);
+    if(fd < 0){
+        printf("files %s open failed \r \n", argv[1]);
+    }
+
+    databuf[0] = atoi(argv[2]);
+
+    retvalue = write(fd,databuf,sizeof(databuf));
+
+    if(retvalue < 0){
+        printf("LED CONTROL FAILES \r\n");
+        close(fd);
         return -1;
     }
 
-    if(atoi(argv[2]) == 1){
-        retvalue = read(fd,readbuf,50);
-        if(retvalue <0){
-            printf("read file failed! %s\r\n",filename);
-        }
-        else{
-            print("read date: %s\r\n",readbuf);
-        }
-    }
-
-    if(atoi(argv[2]) == 2){
-        memcpy(writebuf,userdata,sizeof(userdata));
-        retvalue = write(fd,writebuf,50);
-        if(retvalue<0){
-            printf("write file %s failed \r\n",filename);
-        }
-    }
-
     retvalue = close(fd);
-    if(retvalue<0){
-        printf("close file %s failed \r\n",filename);
+
+    if(retvalue < 0){
+        printf("file %s close failed \r\n",argv[1]);
         return -1;
     }
 

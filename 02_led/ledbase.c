@@ -20,7 +20,7 @@
 #define SW_MUX_GPIO1_IO03_BASE      (0x020E0068)
 #define SW_PAD_GPIO1_IO03_BASE      (0x020E02F4)
 #define GPIO1_DR_BASE               (0x0209C000)
-#define GPIO2_GDIR_BASE             (0x0209C004)
+#define GPIO1_GDIR_BASE             (0x0209C004)
 
 
 static void __iomem *IMX6U_CCM_CCGR1;
@@ -95,17 +95,68 @@ static struct file_operations led_fops = {
     .release = led_release,
 }
 
-static void led_resigister_init(void)
-{
-     IMX6U_CCM_CCGR1 =  ioremap (CCM_CCGR1_BASE,4);
+static void led_register_init(void)
+{   
+    u32 val =0;
+    //寄存器地址映射
+    IMX6U_CCM_CCGR1 =  ioremap (CCM_CCGR1_BASE,4);
+    SW_MUX_GPIO1_IO03 = ioremap (SW_MUX_GPIO1_IO03_BASE,4);
+    SW_PAD_GPIO1_IO03 = ioremap (SW_PAD_GPIO1_IO03_BASE,4);
+    GPIO1_DR = ioremap (GPIO1_DR_BASE,4);
+    GPIO1_GDIR = ioremap(GPIO1_GDIR_BASE,4);
 
+    //使能GPIO时钟
+    val = readl(IMX6U_CCM_CCGR1);
+    val &= ~(3 << 26);
+    val |= (3 << 26);
+    writel(val,IMX6U_CCM_CCGR1);
+
+    //gpio1_io03 引脚复用
+    writel(5,SW_MUX_GPIO1_IO03);
+
+    //设置IO属性
+    writel(0x10B0,SW_PAD_GPIO1_IO03);
+
+    //设置gpio1_io3为输出功能
+    val = readl(GPIO1_GDIR);
+    val &= ~(1 << 3);
+    val |= (1<<3);
+    writel(val,GPIO1_GDIR);
 
 }
 
 static int __init led_init(void)
 {
+    int retvalue = 0;
+    led_register_init();
+
+    retvalue = register_chrdev(LED_MAJOR,LED_NAME,&led_fops);
+    if(retvalue <0){
+        printk("register_chrdev failed \n\r");
+        return -EIO;
+    }
+    return 0;
 
 }
+
+static void __exit led_exit(void)
+{
+    iounmap(IMX6U_CCM_CCGR1);
+    iounmap(SW_MUX_GPIO1_IO03);
+    iounmap(SW_PAD_GPIO1_IO03);
+    iounmap(GPIO1_DR);
+    iounmap(GPIO1_GDIR);
+
+    unregister_chrdev(LED_MAJOR,LED_NAME);
+
+}
+
+module_init(led_init);
+module_exit(led_exit);
+MODULE_LICENSE("GPL");
+MODULE_AUTHOR("k");
+
+
 
 
 

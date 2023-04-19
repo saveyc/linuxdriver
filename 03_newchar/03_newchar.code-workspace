@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"types.h": "c",
+			"int-ll64.h": "c",
+			"kernel.h": "c",
+			"ide.h": "c",
+			"init.h": "c",
+			"module.h": "c",
+			"cdev.h": "c"
+		}
+	}
+}

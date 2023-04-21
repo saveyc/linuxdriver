@@ -177,20 +177,9 @@ static void led_register_init(void)
     IMX6U_CCM_CCGR1 = of_iomap(newchrled.nd,0);
     SW_MUX_GPIO1_IO03 = of_iomap(newchrled.nd,1);
     SW_PAD_GPIO1_IO03 = of_iomap(newchrled.nd,2);
+    GPIO1_DR = of_iomap(newchrled.nd,3);
+    GPIO1_GDIR = of_iomap(newchrled.nd,4);
 #endif
-
-
-
-
-
-
-
-    //寄存器地址映射
-    IMX6U_CCM_CCGR1 =  ioremap (CCM_CCGR1_BASE,4);
-    SW_MUX_GPIO1_IO03 = ioremap (SW_MUX_GPIO1_IO03_BASE,4);
-    SW_PAD_GPIO1_IO03 = ioremap (SW_PAD_GPIO1_IO03_BASE,4);
-    GPIO1_DR = ioremap (GPIO1_DR_BASE,4);
-    GPIO1_GDIR = ioremap(GPIO1_GDIR_BASE,4);
 
     //使能GPIO时钟
     val = readl(IMX6U_CCM_CCGR1);

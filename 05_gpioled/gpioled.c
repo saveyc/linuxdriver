@@ -17,7 +17,7 @@
 #include <asm/io.h>
 
 #define  NEWCHRLED_CNT        1
-#define  NEWCHRLED_NAME       "newcharled"
+#define  NEWCHRLED_NAME       "gpioled"
 #define  LEDOFF               0
 #define  LEDON                1
 

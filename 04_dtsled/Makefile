@@ -1,7 +1,7 @@
 KERNELDIR := /home/k/linux/kernel
 CURRENT_PATH := $(shell pwd)
 
-obj-m := newchrled.o
+obj-m := dtsled.o
 
 build: kernel_modules
 

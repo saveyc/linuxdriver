@@ -7,12 +7,17 @@
                 //"F:\linuxtest/\kernel\kernel\arch\arm\include",
                 //"F:\linuxtest\kernel\kernel\arch\arm\include\generated",
                 //"F:\linuxtest\kernel\kernel\include"
-                "F:/linuxtest/kernel/kernel/arch/arm/include",
-                "F:/linuxtest/kernel/kernel/arch/arm/include/generated/",
-                "F:/linuxtest/kernel/kernel/include"
+                // "F:/linuxtest/kernel/kernel/arch/arm/include",
+                // "F:/linuxtest/kernel/kernel/arch/arm/include/generated/",
+                // "F:/linuxtest/kernel/kernel/include"
                 // "E:/linuxtest/kernel/include",
                 // "E:/linuxtest/kernel/arch/arm/include",
                 // "E:/linuxtest/kernel/arch/arm/include/generated"
+
+                // dell win11
+                "G:/linuxcore/kernel/arch/arm/include",
+                "G:/linuxcore/kernel/arch/arm/include/generated/",
+                "G:/linuxcore/kernel/include"
             ],
             "defines": [
                 "_DEBUG",

@@ -1,7 +1,7 @@
 KERNELDIR := /home/k/linux/kernel
 CURRENT_PATH := $(shell pwd)
 
-obj-m := asyncnoti.o
+obj-m := leddevice.o leddriver.o
 
 build: kernel_modules
 

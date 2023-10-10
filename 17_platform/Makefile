@@ -1,4 +1,4 @@
-KERNELDIR := /home/k/linux/kernel
+KERNELDIR := /home/k/linux/alientekcore/kernel/
 CURRENT_PATH := $(shell pwd)
 
 obj-m := leddevice.o leddriver.o

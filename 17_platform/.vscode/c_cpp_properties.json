@@ -15,9 +15,13 @@
                 // "E:/linuxtest/kernel/arch/arm/include/generated"
 
                 // dell win11
-                "G:/linuxcore/kernel/arch/arm/include",
-                "G:/linuxcore/kernel/arch/arm/include/generated/",
-                "G:/linuxcore/kernel/include"
+                // "G:/linuxcore/kernel/arch/arm/include",
+                // "G:/linuxcore/kernel/arch/arm/include/generated/",
+                // "G:/linuxcore/kernel/include"
+                // dell linux
+                "/home/k/linux/aliectekcore/kernel/arch/arm/include",
+                "/home/k/linux/aliectekcore/kernel/arch/arm/include/generated/",
+                "/home/k/linux/aliectekcore/kernel/include"
             ],
             "defines": [
                 "_DEBUG",

@@ -1,0 +1,1 @@
+cmd_/home/k/linux/linuxdriver/linuxdriver/17_platform/leddriver.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /home/k/linux/linuxdriver/linuxdriver/17_platform/leddriver.ko /home/k/linux/linuxdriver/linuxdriver/17_platform/leddriver.o /home/k/linux/linuxdriver/linuxdriver/17_platform/leddriver.mod.o

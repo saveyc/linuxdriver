@@ -46,32 +46,32 @@ static struct resource led_resources[] = {
         .start = SW_MUX_GPIO1_IO03_BASE,
         .end = (SW_MUX_GPIO1_IO03_BASE +REGISTER_LENGTH - 1),
         .flags = IORESOURCE_MEM,
-    }
+    },
     [2] = {
         .start = SW_PAD_GPIO1_IO03_BASE,
         .end = (SW_PAD_GPIO1_IO03_BASE +REGISTER_LENGTH - 1),
         .flags = IORESOURCE_MEM,
-    }
+    },
     [3] = {
         .start = GPIO1_DR_BASE,
         .end = (GPIO1_DR_BASE +REGISTER_LENGTH - 1),
         .flags = IORESOURCE_MEM,
-    }
+    },
     [4] = {
         .start = GPIO1_GDIR_BASE,
         .end = (GPIO1_GDIR_BASE +REGISTER_LENGTH - 1),
         .flags = IORESOURCE_MEM,
-    }
+    },
 };
 
 static struct platform_device leddevice = {
-    .name = 'imx6ul-gpio',
+    .name = "imx6ul-gpio",
     .id = -1 ,
     .dev = {
         .release = led_release,
-    }
+    },
     .num_resources = ARRAY_SIZE(led_resources),
-    .resources = led_resources,
+    .resource = led_resources,
 };
 
 

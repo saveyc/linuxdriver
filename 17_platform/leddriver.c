@@ -165,7 +165,7 @@ static int led_probe(struct platform_device *dev)
 
 }
 
-static int led_remove(struct platform_decive dev)
+static int led_remove(struct platform_device * dev)
 {
     iounmap(IMX6U_CCM_CCGR1);
     iounmap(SW_MUX_GPIO1_IO03);
@@ -187,8 +187,8 @@ static struct platform_driver led_driver = {
         .name = "imx6ul-led",
     },
     .probe = led_probe,
-    .remove - led_remove,
-}
+    .remove = led_remove,
+};
 
 static int __init leddriver_init(void)
 {
